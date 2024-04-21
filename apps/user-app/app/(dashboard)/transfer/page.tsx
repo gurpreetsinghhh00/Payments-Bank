@@ -26,7 +26,7 @@ async function getOnRampTransaction(){
             userId : Number(session?.user?.id)
         }
     })
-    return transactions.map((tx)=>(
+    return transactions.map((tx : {startTime : Date, amount : number, status : string, provider : string})=>(
         {
             time : tx.startTime,
             amount : tx.amount,

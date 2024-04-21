@@ -23,7 +23,7 @@ const getSendTransaction = async ()=>{
         }
     })
 
-    return transaction.map((t) => ({
+    return transaction.map((t : {amount : number, timestamp : Date, ToUser : {name : string | null}}) => ({
         amount : t.amount,
         time : t.timestamp,
         name : t.ToUser.name || "",
@@ -47,7 +47,7 @@ const getReceivedTransaction = async () => {
         }
     })
 
-    return transaction.map((t) => ({
+    return transaction.map((t :{amount : number, timestamp : Date, fromUser : {name : string | null}}) => ({
         amount : t.amount,
         time : t.timestamp,
         name : t.fromUser.name || "",
